@@ -28,3 +28,23 @@ export const CreatePost = async (formData: FormData) => {
 
   redirect('/posts');
 };
+
+export async function UpdatePost(id: number, formData: FormData) {
+  await prisma.post.update({
+    where: { id },
+    data: {
+      title: formData.get('title') as string,
+      body: formData.get('body') as string,
+    },
+  });
+
+  revalidatePath('/posts');
+  redirect(`/posts/${id}`);
+}
+
+export async function deletePost(id: number) {
+  await prisma.post.delete({ where: { id } });
+
+  revalidatePath('/posts');
+  redirect('/posts');
+}

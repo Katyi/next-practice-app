@@ -8,7 +8,7 @@ const Page = async ({ params }: ParamsType) => {
       id: parseInt(params.id),
     },
   });
-  console.log(post);
+  // console.log(post);
   return (
     <main className="text-center pt-16">
       <h1 className="text-4xl md:text-5xl font-bold mb-5">Update post</h1>

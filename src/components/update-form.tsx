@@ -1,8 +1,8 @@
 import { UpdatePost } from '@/actions/actions';
 
-const UpdateForm = ({ post }: any) => {
-  console.log(`post ${post}`);
-  const updatePostWithId = UpdatePost.bind(null, post.id);
+const UpdateForm = (props: postProps) => {
+  let post = { ...props.post };
+  const updatePostWithId = UpdatePost.bind(null, post.id ? post.id : 0);
 
   return (
     <form

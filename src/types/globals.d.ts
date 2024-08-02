@@ -1,13 +1,17 @@
-interface Post {
+type Post = {
   id: number;
   title: string;
   body: string;
   createdAt: Date;
   updatedAt: Date;
-}
+} | null;
+
+type postProps = {
+  post: Post;
+};
 
 type PostCardProps = {
-  post: PostType | null;
+  post: Post;
   deletePost: (id: number) => Promise<void>;
 };
 
